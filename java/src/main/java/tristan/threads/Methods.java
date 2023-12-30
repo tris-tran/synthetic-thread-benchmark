@@ -7,8 +7,9 @@ public class Methods {
 	}
 
 	public static void busyworkForMilis(final long initialTime, final long target, int[] work) {
+		int aux;
 		while (true) {
-			int aux = work[0];
+			aux = work[0];
 			work[0] = work[1];
 			work[1] = aux;
 

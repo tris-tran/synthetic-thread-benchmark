@@ -1,4 +1,5 @@
-use std::{env, thread, i32};
+use std::io::Write;
+use std::{env, thread, io};
 use std::time::{SystemTime, UNIX_EPOCH};
 use std::sync::Arc;
 
@@ -32,10 +33,17 @@ fn main() {
         });
     }
 
+    println!("All threads waiting run");
+    let _ = io::stdout().flush();
+
+    let mut buf = String::new();
+    let _ = io::stdin().read_line(&mut buf);
+
     let starting_latch = &*latch;
     starting_latch.countdown();
 
     finishing_latch.await_latch();
+
 }
 
 fn busy_work(started_time: u128, wait_milis : u128) {
