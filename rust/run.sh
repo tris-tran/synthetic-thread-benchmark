@@ -2,4 +2,4 @@
 
 threads=$1
 
-cargo r $threads
+exec cargo r $threads
