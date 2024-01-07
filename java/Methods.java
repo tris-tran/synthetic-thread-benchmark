@@ -1,4 +1,3 @@
-package tristan.threads;
 
 public class Methods {
 
@@ -6,7 +5,9 @@ public class Methods {
 		return Integer.valueOf(args[0]);
 	}
 
-	public static void busyworkForMilis(final long initialTime, final long target, int[] work) {
+	public static void busyWork() {
+		long initialTime = System.currentTimeMillis();
+		int work[] = { 1, 2 };
 		int aux;
 		while (true) {
 			aux = work[0];
