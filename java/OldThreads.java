@@ -32,7 +32,7 @@ public class OldThreads {
 			}).start();
 		}
 
-		System.out.printf("All threads created %d\n", threadCount);
+		var ignore = System.console().readLine("All threads created");
 		//We allow all threasd to work all at once.
 		countDownLatch.countDown();
 		//We wait for all threads to finish
