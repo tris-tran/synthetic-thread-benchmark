@@ -10,21 +10,13 @@ parentPort.on('message', (msg) => {
 });
 
 function busyWork() {
-    var start = Date.now();
     var arr = [1, 2];
     var aux;
-    var loops = 0;
-    while(true) {
-        loops++;
+    for (let i = 0; i < 10000; i++) {
         aux = arr[1];
         arr[1] = arr[2];
         arr[2] = aux;
-
-        var elapse = Date.now() - start;
-        if (elapse <= 0) elapse = 1;
-        if (elapse > 5000) {
-            break;
-        }
+        aux = arr[0] * arr[1];
     }
 }
 

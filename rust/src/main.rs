@@ -1,6 +1,5 @@
 use std::io::Write;
 use std::{env, thread, io};
-use std::time::{SystemTime, UNIX_EPOCH};
 use std::sync::Arc;
 
 mod concurrent;
@@ -22,12 +21,7 @@ fn main() {
 
             starting_latch.await_latch();
 
-            let current_time = SystemTime::now()
-                .duration_since(UNIX_EPOCH)
-                .unwrap()
-                .as_millis();
-
-            busy_work(current_time, 10000);
+            busy_work();
 
             finishing_inner_latch.countdown();
         });
@@ -46,23 +40,15 @@ fn main() {
 
 }
 
-fn busy_work(started_time: u128, wait_milis : u128) {
+fn busy_work() {
     let mut aux : i32;
     let mut data: [i32; 2] = [0, 1];
-    loop {
+    for _ in 0..10000 {
         aux = data[0];
         data[0] = data[1];
         data[1] = aux;
 
-        let now = SystemTime::now()
-            .duration_since(UNIX_EPOCH).unwrap()
-            .as_millis();
-
-        let time_passed = now - started_time;
-
-        if time_passed >= wait_milis  {
-            break;
-        }
+        aux = data[0] * data[1];
     }
 }
 

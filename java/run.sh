@@ -1,5 +1,5 @@
 
 
-javac Methods.java OldThreads.java VirtualThreads.java
+javac Methods.java OldThreads.java 
 
 exec java OldThreads $1
