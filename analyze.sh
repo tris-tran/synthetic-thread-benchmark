@@ -31,4 +31,4 @@ read -p "Finish messurements"
 echo "END" >&"${COPROC[1]}"
 echo "End sended"
 
-wait "$COPROC_PID"
+time wait "$COPROC_PID"

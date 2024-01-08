@@ -38,7 +38,4 @@ public class OldThreads {
 		//We wait for all threads to finish
 		allThreadsWait.await();
 	}
-
-
-
 }
