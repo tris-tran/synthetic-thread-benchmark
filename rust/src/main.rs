@@ -47,7 +47,6 @@ fn busy_work() {
         aux = data[0];
         data[0] = data[1];
         data[1] = aux;
-
         aux = data[0] * data[1];
     }
 }

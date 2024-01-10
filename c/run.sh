@@ -1,5 +1,6 @@
+#!/bin/bash
 
-rm threads
+rm -f threads
 
 gcc -pthread countdownlatch.c main.c -o threads
 

@@ -1,6 +1,7 @@
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Scanner;
 
 public class VirtualThreads {
 
@@ -28,7 +29,10 @@ public class VirtualThreads {
 			});
 		}
 
-		var ignore = System.console().readLine("All threads created");
+		var scanner = new Scanner(System.in);
+		System.out.println("All threads created");
+		var ignore = scanner.nextLine();
+
 		//We allow all threasd to work all at once.
 		countDownLatch.countDown();
 		//We wait for all threads to finish

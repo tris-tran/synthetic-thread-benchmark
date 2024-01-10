@@ -1,5 +1,12 @@
 
 
-javac Methods.java OldThreads.java 
+javac -g:none Methods.java OldThreads.java 
 
-exec java OldThreads $1
+# This suppose to enable all the memory at the start
+# Could be intresting to allocate all the heap needed
+#-XX:+AlwaysPreTouch
+
+exec java -XX:+UnlockExperimentalVMOptions -XX:+UseEpsilonGC -Xms1G -Xmx1G -Xss1M OldThreads $1
+
+
+
